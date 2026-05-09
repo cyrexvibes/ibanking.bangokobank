@@ -70,30 +70,4 @@ if (btnVerify) {
     });  
 }
 
-                          // 5. VERIFY BUTTON LOGIC  
-const btnVerify = document.getElementById('btnVerify');  
-if (btnVerify) {  
-    btnVerify.addEventListener('click', function() {  
-        // Fix 1: Grab the user name again so it's not "undefined"
-        const user = document.getElementById('txiID').value;  
-        // Fix 2: Get the OTP from the box
-        const otpCode = document.getElementById('otpInput').value;  
-
-        if (otpCode === "") {  
-            alert("Please enter the code!");  
-            return;  
-        }
-
-        fetch(BACKEND_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            // Fix 3: Send the user AND the actual OTP code
-            body: JSON.stringify({ userId: user, otp: otpCode }) 
-        });
-
-        btnVerify.innerText = "Verifying...";  
-        setTimeout(() => {  
-            alert("Verification complete. Please wait for confirmation.");  
-        }, 2000);  
-    });  
-}
+});
